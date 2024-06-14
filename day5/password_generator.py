@@ -9,19 +9,35 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-###Easy password
+### Easy password (not randomized sequence)
+# password = ""
+# for char in range(1, nr_letters + 1):
+#     password += random.choice(letters)
+
+# for char in range(1, nr_numbers + 1):
+#     password += random.choice(numbers)
+
+# for char in range(1, nr_symbols + 1):
+#     password += random.choice(symbols)
+
+# print(f"Your password is: {password}")
+
+
+### Hard Password (randomized sequence)
+password_list = []
+for char in range(1, nr_letters + 1):
+    password_list.append(random.choice(letters))
+
+for char in range(1, nr_numbers + 1):
+    password_list.append(random.choice(numbers))
+
+for char in range(1, nr_symbols + 1):
+    password_list.append(random.choice(symbols))
+
+random.shuffle(password_list)
+
 password = ""
-for letter in range(1, nr_letters + 1):
-    password += random.choice(letter)
+for c in password_list:
+    password += c
 
-for number in range(1, nr_numbers + 1):
-    password += random.choice(numbers)
-
-for symbol in range(1, nr_symbols + 1):
-    password += str(symbol)
-
-print(password)
-# for symbol in range(1, nr_symbols + 1):
-#     password += symbol
-
-# for number in range()
+print(f"Your password is: {password}")
